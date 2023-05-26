@@ -63,6 +63,7 @@ void MyDoubleLinkedList::DeleteNote(int targetValue)
     {
         this->head = temp->next;
         temp->next->prev = nullptr;
+        delete temp;
         return;
     }
 
@@ -76,6 +77,7 @@ void MyDoubleLinkedList::DeleteNote(int targetValue)
 
     temp->prev->next = temp->next;
     temp->next->prev = temp->prev;
+    delete temp;
 }
 void MyDoubleLinkedList::PrintAllNode()
 {

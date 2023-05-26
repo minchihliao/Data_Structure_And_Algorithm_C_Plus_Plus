@@ -55,6 +55,7 @@ void MyLinkedList::DeleteNode(int value)
     if (temp != NULL & temp->Data == value)
     {
         this->head = this->head->next;
+        delete temp;
         return;
     }
 
@@ -67,6 +68,7 @@ void MyLinkedList::DeleteNode(int value)
         return;
 
     prev->next = temp->next;
+    delete temp;
 }
 
 void MyLinkedList::PrintAllLinkedList()

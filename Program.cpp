@@ -3,14 +3,16 @@
 #include "Data_Structure\MyDoubleLinkedList.h"
 #include "Data_Structure\MyStack.h"
 #include "Data_Structure\MyQueue.h"
+#include "Data_Structure\MyBinaryTree.h"
 
 void TestLinkedList();
 void TestDoubleLinkedList();
 void TestStack();
 void TestQueue();
+void TestBinaryTree();
 int main()
 {
-    TestQueue();
+    TestBinaryTree();
 }
 
 void TestLinkedList()
@@ -62,4 +64,23 @@ void TestQueue()
 
     int y = queue->Peek();
     std::cout << x << y << queue->Dequeue() << std::endl;
+}
+
+void TestBinaryTree()
+{
+    MyBinaryTree *binaryTree = new MyBinaryTree();
+    binaryTree->tree = new MyBinaryNode(1);
+    binaryTree->tree->leftNode = new MyBinaryNode(2);
+    binaryTree->tree->rightNode = new MyBinaryNode(3);
+    binaryTree->tree->leftNode->leftNode = new MyBinaryNode(4);
+    binaryTree->tree->leftNode->rightNode = new MyBinaryNode(5);
+
+    std::cout << "Preorder Traversal of binary tree is " << std::endl;
+    binaryTree->PreOrder(binaryTree->tree);
+    std::cout << std::endl
+              << "InOrder Traversal of binary tree is " << std::endl;
+    binaryTree->InOrder(binaryTree->tree);
+    std::cout << std::endl
+              << "PostOrder Traversal of binary tree is " << std::endl;
+    binaryTree->PostOrder(binaryTree->tree);
 }
