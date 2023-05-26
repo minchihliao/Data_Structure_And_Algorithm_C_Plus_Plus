@@ -13,6 +13,7 @@ DoubleNode::~DoubleNode()
 
 MyDoubleLinkedList::~MyDoubleLinkedList()
 {
+    delete head;
 }
 
 void MyDoubleLinkedList::Push(int value)

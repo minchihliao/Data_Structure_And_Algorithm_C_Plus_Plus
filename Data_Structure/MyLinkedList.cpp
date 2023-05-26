@@ -10,6 +10,10 @@ Node::~Node()
     std::cout << "Release Node :" << this->Data << std::endl;
 }
 
+MyLinkedList::~MyLinkedList()
+{
+    delete head;
+}
 void MyLinkedList::Push(int value)
 {
     Node *newNode = new Node(value);

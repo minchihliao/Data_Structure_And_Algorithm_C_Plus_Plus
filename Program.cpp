@@ -1,12 +1,15 @@
 #include <iostream>
 #include "Data_Structure\MyLinkedList.h"
 #include "Data_Structure\MyDoubleLinkedList.h"
+#include "Data_Structure\MyStack.h"
+#include <vector>
+using namespace std;
 void TestLinkedList();
 void TestDoubleLinkedList();
-
+void TestStack();
 int main()
 {
-    TestDoubleLinkedList();
+    TestStack();
 }
 
 void TestLinkedList()
@@ -36,4 +39,16 @@ void TestDoubleLinkedList()
     doubleLinkedList->DeleteNote(5);
     doubleLinkedList->DeleteNote(2);
     doubleLinkedList->PrintAllNode();
+}
+
+void TestStack()
+{
+    MyStack *stack = new MyStack(3);
+    stack->Push(1);
+    stack->Push(2);
+    stack->Push(3);
+
+    int x = stack->Pop();
+    int y = stack->Peek();
+    std::cout << x << y << std::endl;
 }
