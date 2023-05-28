@@ -4,15 +4,17 @@
 #include "Data_Structure\MyStack.h"
 #include "Data_Structure\MyQueue.h"
 #include "Data_Structure\MyBinaryTree.h"
+#include "Question\Array_And_String.h"
 
 void TestLinkedList();
 void TestDoubleLinkedList();
 void TestStack();
 void TestQueue();
 void TestBinaryTree();
+void TestIsUniqueChar();
+
 int main()
 {
-    TestBinaryTree();
 }
 
 void TestLinkedList()
@@ -65,7 +67,6 @@ void TestQueue()
     int y = queue->Peek();
     std::cout << x << y << queue->Dequeue() << std::endl;
 }
-
 void TestBinaryTree()
 {
     MyBinaryTree *binaryTree = new MyBinaryTree();
@@ -83,4 +84,14 @@ void TestBinaryTree()
     std::cout << std::endl
               << "PostOrder Traversal of binary tree is " << std::endl;
     binaryTree->PostOrder(binaryTree->tree);
+}
+
+void TestIsUniqueChar()
+{
+    Array_And_String *problem = new Array_And_String();
+    char charArray[] = {"aasdfgh"};
+    bool result1 = problem->isUniqueChar_CharArray(charArray);
+    std::string str("asdfgh");
+    bool result2 = problem->isUniqueChar_String(str);
+    std::cout << result1 << result2 << std::endl;
 }
