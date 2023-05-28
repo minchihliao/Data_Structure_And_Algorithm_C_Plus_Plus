@@ -53,3 +53,38 @@ bool Array_And_String::IsPermmutation(std::string sourceString, std::string comp
 
     return true;
 }
+
+void Array_And_String::ReplaceSpace(char *s, int sawArrLength, int arrlength)
+{
+    int spaceNumber = 0;
+    for (int i = 0; i < sawArrLength; i++)
+    {
+        if (s[i] == ' ')
+            spaceNumber++;
+    }
+    int newIndex = sawArrLength + spaceNumber * 2;
+
+    if (sawArrLength < arrlength)
+        s[newIndex] = '\0';
+    for (int i = sawArrLength - 1; i >= 0; i--)
+    {
+        if (s[i] == ' ')
+        {
+            s[newIndex - 1] = '0';
+            s[newIndex - 2] = '2';
+            s[newIndex - 3] = '%';
+            newIndex = newIndex - 3;
+        }
+        else
+        {
+            s[newIndex - 1] = s[i];
+            newIndex--;
+        }
+    }
+    int newLength = sawArrLength + spaceNumber * 2;
+    for (int i = 0; i < newLength; i++)
+    {
+        std::cout << s[i];
+    }
+    std::cout << std::endl;
+}

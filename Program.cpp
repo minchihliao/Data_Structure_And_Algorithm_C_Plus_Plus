@@ -13,9 +13,10 @@ void TestQueue();
 void TestBinaryTree();
 void TestIsUniqueChar();
 void TestPermmutation();
+void TestReplaceSpace();
 int main()
 {
-    TestPermmutation();
+    TestReplaceSpace();
 }
 
 void TestLinkedList()
@@ -86,7 +87,6 @@ void TestBinaryTree()
               << "PostOrder Traversal of binary tree is " << std::endl;
     binaryTree->PostOrder(binaryTree->tree);
 }
-
 void TestIsUniqueChar()
 {
     Array_And_String *problem = new Array_And_String();
@@ -96,7 +96,6 @@ void TestIsUniqueChar()
     bool result2 = problem->isUniqueChar_String(str);
     std::cout << result1 << result2 << std::endl;
 }
-
 void TestPermutation()
 {
     Array_And_String *problem = new Array_And_String();
@@ -104,4 +103,12 @@ void TestPermutation()
     std::string compare("bcac");
     bool result = problem->IsPermmutation(source, compare);
     std::cout << result << std::endl;
+}
+void TestReplaceSpace()
+{
+    Array_And_String *problem = new Array_And_String();
+    char str[14] = "Mr John Smith";
+    char charArray[] = {"aasdfgh"};
+    std::cout << sizeof(charArray) << std::endl;
+    problem->ReplaceSpace(str, 13, sizeof(str));
 }
