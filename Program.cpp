@@ -12,9 +12,10 @@ void TestStack();
 void TestQueue();
 void TestBinaryTree();
 void TestIsUniqueChar();
-
+void TestPermmutation();
 int main()
 {
+    TestPermmutation();
 }
 
 void TestLinkedList()
@@ -94,4 +95,13 @@ void TestIsUniqueChar()
     std::string str("asdfgh");
     bool result2 = problem->isUniqueChar_String(str);
     std::cout << result1 << result2 << std::endl;
+}
+
+void TestPermutation()
+{
+    Array_And_String *problem = new Array_And_String();
+    std::string source("abcc");
+    std::string compare("bcac");
+    bool result = problem->IsPermmutation(source, compare);
+    std::cout << result << std::endl;
 }

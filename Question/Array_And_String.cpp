@@ -31,3 +31,25 @@ bool Array_And_String::isUniqueChar_String(std::string str)
     }
     return true;
 }
+
+bool Array_And_String::IsPermmutation(std::string sourceString, std::string compareString)
+{
+    if (sourceString.size() != compareString.size())
+        return false;
+    int *letters = new int[128]{};
+
+    for (auto &c : sourceString)
+    {
+        letters[(int)c]++;
+    }
+
+    for (auto &c : compareString)
+    {
+        int index = (int)c;
+        letters[index]--;
+        if (letters[index] < 0)
+            return false;
+    }
+
+    return true;
+}
