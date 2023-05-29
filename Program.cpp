@@ -5,6 +5,8 @@
 #include "Data_Structure\MyQueue.h"
 #include "Data_Structure\MyBinaryTree.h"
 #include "Question\Array_And_String.h"
+#include "Question\LinkedList.h"
+#include <list>
 
 void TestLinkedList();
 void TestDoubleLinkedList();
@@ -15,9 +17,10 @@ void TestIsUniqueChar();
 void TestPermmutation();
 void TestReplaceSpace();
 void TestCompress_charArray();
+void TestLinkedListDeleteRepeatNode();
+
 int main()
 {
-    TestCompress_charArray();
 }
 
 void TestLinkedList()
@@ -113,7 +116,6 @@ void TestReplaceSpace()
     std::cout << sizeof(charArray) << std::endl;
     problem->ReplaceSpace(str, 13, sizeof(str));
 }
-
 void TestCompress_charArray()
 {
     Array_And_String *problem = new Array_And_String();
@@ -122,5 +124,15 @@ void TestCompress_charArray()
     for (int i = 0; i < sizeof(result); i++)
     {
         std::cout << result[i];
+    }
+}
+void TestLinkedListDeleteRepeatNode()
+{
+    LinkedList *problem = new LinkedList();
+    std::list<int> data = {1, 2, 3, 4, 5, 5, 6, 3, 4};
+    std::list<int> result = problem->DeleteRepeatNode(data);
+    for (int n : result)
+    {
+        std::cout << n;
     }
 }
