@@ -14,9 +14,10 @@ void TestBinaryTree();
 void TestIsUniqueChar();
 void TestPermmutation();
 void TestReplaceSpace();
+void TestCompress_charArray();
 int main()
 {
-    TestReplaceSpace();
+    TestCompress_charArray();
 }
 
 void TestLinkedList()
@@ -111,4 +112,15 @@ void TestReplaceSpace()
     char charArray[] = {"aasdfgh"};
     std::cout << sizeof(charArray) << std::endl;
     problem->ReplaceSpace(str, 13, sizeof(str));
+}
+
+void TestCompress_charArray()
+{
+    Array_And_String *problem = new Array_And_String();
+    char str[] = "AAAABCDDD";
+    char *result = problem->Compress_charArray(str, sizeof(str) - 1);
+    for (int i = 0; i < sizeof(result); i++)
+    {
+        std::cout << result[i];
+    }
 }

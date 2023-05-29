@@ -88,3 +88,45 @@ void Array_And_String::ReplaceSpace(char *s, int sawArrLength, int arrlength)
     }
     std::cout << std::endl;
 }
+
+int Array_And_String::countCompression(char *s, int arraylength)
+{
+    int compressedLength = 0;
+    int count = 0;
+    for (int i = 0; i < arraylength; i++)
+    {
+        count++;
+        if (i + 1 >= arraylength || s[i] != s[i + 1])
+        {
+            compressedLength += 1;
+            compressedLength += (count / 10 + 1);
+            // std::cout << count << (count / 10 + 1) << " : " << compressedLength << std::endl;
+            count = 0;
+        }
+    }
+    return compressedLength;
+}
+char *Array_And_String::Compress_charArray(char *s, int arraylength)
+{
+    int finalLength = countCompression(s, arraylength);
+    if (finalLength >= arraylength)
+        return s;
+    char *newChar = new char[finalLength + 1]{};
+    int compressedLength = 0;
+    int count = 0;
+    for (int i = 0; i < arraylength; i++)
+    {
+        // std::cout << s[i] << std::endl;
+        count++;
+        if (i + 1 >= arraylength || s[i] != s[i + 1])
+        {
+            newChar[compressedLength] = s[i];
+            char numb = (char)(count + 48);
+            newChar[compressedLength + 1] = numb;
+            compressedLength += 2;
+            count = 0;
+        }
+    }
+
+    return newChar;
+}
