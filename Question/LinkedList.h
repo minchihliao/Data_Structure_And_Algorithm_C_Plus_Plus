@@ -17,4 +17,5 @@ private:
     /* data */
 public:
     std::list<int> DeleteRepeatNode(std::list<int> head);
+    LinkedListNode *NthToLast(LinkedListNode *head, int k);
 };

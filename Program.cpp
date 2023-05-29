@@ -18,9 +18,11 @@ void TestPermmutation();
 void TestReplaceSpace();
 void TestCompress_charArray();
 void TestLinkedListDeleteRepeatNode();
+void TestLinkedListNthToLast();
 
 int main()
 {
+    TestLinkedListNthToLast();
 }
 
 void TestLinkedList()
@@ -135,4 +137,15 @@ void TestLinkedListDeleteRepeatNode()
     {
         std::cout << n;
     }
+}
+void TestLinkedListNthToLast()
+{
+    LinkedList *problem = new LinkedList();
+    LinkedListNode *head = new LinkedListNode(1);
+    head->Next = new LinkedListNode(2);
+    head->Next->Next = new LinkedListNode(3);
+    head->Next->Next->Next = new LinkedListNode(4);
+    head->Next->Next->Next->Next = new LinkedListNode(5);
+    head->Next->Next->Next->Next->Next = new LinkedListNode(6);
+    std::cout << problem->NthToLast(head, 4)->Data << std::endl;
 }

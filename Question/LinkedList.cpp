@@ -20,3 +20,23 @@ std::list<int> LinkedList::DeleteRepeatNode(std::list<int> head)
     }
     return *newLinkedList;
 }
+
+LinkedListNode *LinkedList::NthToLast(LinkedListNode *head, int k)
+{
+    LinkedListNode *first = head;
+    LinkedListNode *second = head;
+    for (int i = 0; i < k; i++)
+    {
+        if (first == nullptr)
+            return nullptr;
+        first = first->Next;
+    }
+
+    while (first != NULL)
+    {
+        first = first->Next;
+        second = second->Next;
+    }
+
+    return second;
+}
