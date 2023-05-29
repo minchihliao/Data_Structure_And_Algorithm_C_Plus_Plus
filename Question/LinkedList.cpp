@@ -50,3 +50,29 @@ LinkedListNode *LinkedList::DeleteMidNode(LinkedListNode *targetNode)
     targetNode->Next = next->Next;
     return targetNode;
 }
+LinkedListNode *LinkedList::ReverseLinkedList(LinkedListNode *head)
+{
+    LinkedListNode *newHead = nullptr;
+    while (head != NULL)
+    {
+        LinkedListNode *n = new LinkedListNode(head->Data);
+        n->Next = newHead;
+        newHead = n;
+        head = head->Next;
+    }
+    return newHead;
+}
+bool LinkedList::IsPalindrom(LinkedListNode *head)
+{
+    LinkedListNode *reverseLinkedList = ReverseLinkedList(head);
+    while (head != NULL && reverseLinkedList != NULL)
+    {
+        if (head->Data != reverseLinkedList->Data)
+        {
+            return false;
+        }
+        head = head->Next;
+        reverseLinkedList = reverseLinkedList->Next;
+    }
+    return head == nullptr && reverseLinkedList == nullptr;
+}

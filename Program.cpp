@@ -20,10 +20,10 @@ void TestCompress_charArray();
 void TestLinkedListDeleteRepeatNode();
 void TestLinkedListNthToLast();
 void TestLinkedListDeleteMidNode();
-
+void TestLinkedListIsPalindrom();
 int main()
 {
-    TestLinkedListDeleteMidNode();
+    TestLinkedListIsPalindrom();
 }
 
 void TestLinkedList()
@@ -166,4 +166,15 @@ void TestLinkedListDeleteMidNode()
         std::cout << temp->Data << std::endl;
         temp = temp->Next;
     }
+}
+void TestLinkedListIsPalindrom()
+{
+    LinkedList *problem = new LinkedList();
+    LinkedListNode *head = new LinkedListNode(1);
+    head->Next = new LinkedListNode(2);
+    head->Next->Next = new LinkedListNode(3);
+    head->Next->Next->Next = new LinkedListNode(2);
+    head->Next->Next->Next->Next = new LinkedListNode(11);
+
+    std::cout << problem->IsPalindrom(head) << std::endl;
 }
