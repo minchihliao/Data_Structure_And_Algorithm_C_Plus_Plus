@@ -6,6 +6,7 @@
 #include "Data_Structure\MyBinaryTree.h"
 #include "Question\Array_And_String.h"
 #include "Question\LinkedList.h"
+#include "Question\Stack_And_Queue.h"
 #include <list>
 
 void TestLinkedList();
@@ -21,9 +22,10 @@ void TestLinkedListDeleteRepeatNode();
 void TestLinkedListNthToLast();
 void TestLinkedListDeleteMidNode();
 void TestLinkedListIsPalindrom();
+void TestStackwithMinValue();
 int main()
 {
-    TestLinkedListIsPalindrom();
+    TestStackwithMinValue();
 }
 
 void TestLinkedList()
@@ -174,7 +176,24 @@ void TestLinkedListIsPalindrom()
     head->Next = new LinkedListNode(2);
     head->Next->Next = new LinkedListNode(3);
     head->Next->Next->Next = new LinkedListNode(2);
-    head->Next->Next->Next->Next = new LinkedListNode(11);
+    head->Next->Next->Next->Next = new LinkedListNode(1);
 
     std::cout << problem->IsPalindrom(head) << std::endl;
+}
+
+void TestStackwithMinValue()
+{
+    StackWithMin *stack = new StackWithMin();
+    stack->Push(4);
+    stack->Push(3);
+    stack->Push(5);
+    stack->Push(7);
+    stack->Push(1);
+
+    stack->Display();
+    std::cout << "Min : " << stack->Min() << std::endl;
+    stack->Pop();
+    stack->Pop();
+    stack->Display();
+    std::cout << "Min : " << stack->Min() << std::endl;
 }
