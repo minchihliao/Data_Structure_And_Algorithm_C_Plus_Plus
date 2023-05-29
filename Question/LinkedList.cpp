@@ -40,3 +40,13 @@ LinkedListNode *LinkedList::NthToLast(LinkedListNode *head, int k)
 
     return second;
 }
+
+LinkedListNode *LinkedList::DeleteMidNode(LinkedListNode *targetNode)
+{
+    if (targetNode == NULL)
+        return nullptr;
+    LinkedListNode *next = targetNode->Next;
+    targetNode->Data = next->Data;
+    targetNode->Next = next->Next;
+    return targetNode;
+}

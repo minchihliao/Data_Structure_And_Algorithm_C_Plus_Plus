@@ -19,10 +19,11 @@ void TestReplaceSpace();
 void TestCompress_charArray();
 void TestLinkedListDeleteRepeatNode();
 void TestLinkedListNthToLast();
+void TestLinkedListDeleteMidNode();
 
 int main()
 {
-    TestLinkedListNthToLast();
+    TestLinkedListDeleteMidNode();
 }
 
 void TestLinkedList()
@@ -148,4 +149,21 @@ void TestLinkedListNthToLast()
     head->Next->Next->Next->Next = new LinkedListNode(5);
     head->Next->Next->Next->Next->Next = new LinkedListNode(6);
     std::cout << problem->NthToLast(head, 4)->Data << std::endl;
+}
+void TestLinkedListDeleteMidNode()
+{
+    LinkedList *problem = new LinkedList();
+    LinkedListNode *head = new LinkedListNode(1);
+    head->Next = new LinkedListNode(2);
+    head->Next->Next = new LinkedListNode(3);
+    head->Next->Next->Next = new LinkedListNode(4);
+    head->Next->Next->Next->Next = new LinkedListNode(5);
+    head->Next->Next->Next->Next->Next = new LinkedListNode(6);
+    problem->DeleteMidNode(head->Next->Next->Next);
+    LinkedListNode *temp = head;
+    while (temp != NULL)
+    {
+        std::cout << temp->Data << std::endl;
+        temp = temp->Next;
+    }
 }
