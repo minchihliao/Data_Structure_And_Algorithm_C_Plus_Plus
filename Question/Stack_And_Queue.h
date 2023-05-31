@@ -20,3 +20,17 @@ public:
     int Min();
     void Display();
 };
+
+class QueueUsingTwoStacks
+{
+private:
+    std::stack<int> first;
+    std::stack<int> second;
+    bool isSecondEmpty();
+    void PushFirsttoSecond();
+
+public:
+    void Push(int val);
+    int Pop();
+    int Peek();
+};

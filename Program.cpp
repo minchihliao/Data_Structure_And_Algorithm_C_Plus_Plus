@@ -23,9 +23,10 @@ void TestLinkedListNthToLast();
 void TestLinkedListDeleteMidNode();
 void TestLinkedListIsPalindrom();
 void TestStackwithMinValue();
+void TestQueueWithTwoStacks();
 int main()
 {
-    TestStackwithMinValue();
+    TestQueueWithTwoStacks();
 }
 
 void TestLinkedList()
@@ -196,4 +197,24 @@ void TestStackwithMinValue()
     stack->Pop();
     stack->Display();
     std::cout << "Min : " << stack->Min() << std::endl;
+}
+void TestQueueWithTwoStacks()
+{
+    QueueUsingTwoStacks *queue = new QueueUsingTwoStacks();
+    queue->Push(1);
+    queue->Push(2);
+    queue->Push(3);
+    queue->Push(4);
+    queue->Push(5);
+    std::cout << queue->Pop() << std::endl;
+    std::cout << queue->Pop() << std::endl;
+    std::cout << queue->Peek() << std::endl;
+    std::cout << queue->Pop() << std::endl;
+    queue->Push(6);
+    queue->Push(7);
+    queue->Push(8);
+    std::cout << queue->Pop() << std::endl;
+    std::cout << queue->Pop() << std::endl;
+    std::cout << queue->Peek() << std::endl;
+    std::cout << queue->Pop() << std::endl;
 }

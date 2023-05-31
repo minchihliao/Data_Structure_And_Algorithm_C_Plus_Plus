@@ -34,3 +34,41 @@ void StackWithMin::Display()
         tem.pop();
     }
 }
+
+bool QueueUsingTwoStacks::isSecondEmpty()
+{
+    return this->second.empty();
+}
+void QueueUsingTwoStacks::PushFirsttoSecond()
+{
+    while (!this->first.empty())
+    {
+        int val = this->first.top();
+
+        this->second.push(val);
+        this->first.pop();
+    }
+}
+
+void QueueUsingTwoStacks::Push(int val)
+{
+    this->first.push(val);
+}
+int QueueUsingTwoStacks::Pop()
+{
+    if (isSecondEmpty())
+    {
+        PushFirsttoSecond();
+    }
+    int val = this->second.top();
+    this->second.pop();
+    return val;
+}
+int QueueUsingTwoStacks::Peek()
+{
+    if (isSecondEmpty())
+    {
+        PushFirsttoSecond();
+    }
+    return this->second.top();
+}
