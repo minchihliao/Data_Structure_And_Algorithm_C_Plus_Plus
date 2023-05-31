@@ -49,7 +49,6 @@ void QueueUsingTwoStacks::PushFirsttoSecond()
         this->first.pop();
     }
 }
-
 void QueueUsingTwoStacks::Push(int val)
 {
     this->first.push(val);
@@ -71,4 +70,52 @@ int QueueUsingTwoStacks::Peek()
         PushFirsttoSecond();
     }
     return this->second.top();
+}
+
+void SortStack::sort()
+{
+    this->isSort = true;
+    std::stack<int> tempStack;
+
+    while (!this->stack.empty())
+    {
+        int val = this->stack.top();
+        this->stack.pop();
+        while (!tempStack.empty() && tempStack.top() > val)
+        {
+            this->stack.push(tempStack.top());
+            tempStack.pop();
+        }
+        tempStack.push(val);
+    }
+
+    while (!tempStack.empty())
+    {
+        this->stack.push(tempStack.top());
+        tempStack.pop();
+    }
+}
+
+void SortStack::Push(int val)
+{
+    this->stack.push(val);
+    this->isSort = false;
+}
+int SortStack::Pop()
+{
+    if (!this->isSort)
+    {
+        sort();
+    }
+    int val = this->stack.top();
+    this->stack.pop();
+    return val;
+}
+int SortStack::Peek()
+{
+    return this->stack.top();
+}
+bool SortStack::Empty()
+{
+    return this->stack.empty();
 }

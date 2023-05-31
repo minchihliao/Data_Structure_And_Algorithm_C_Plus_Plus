@@ -34,3 +34,17 @@ public:
     int Pop();
     int Peek();
 };
+
+class SortStack
+{
+private:
+    std::stack<int> stack;
+    bool isSort;
+    void sort();
+
+public:
+    void Push(int val);
+    int Pop();
+    int Peek();
+    bool Empty();
+};

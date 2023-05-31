@@ -24,9 +24,10 @@ void TestLinkedListDeleteMidNode();
 void TestLinkedListIsPalindrom();
 void TestStackwithMinValue();
 void TestQueueWithTwoStacks();
+void TestSortStack();
 int main()
 {
-    TestQueueWithTwoStacks();
+    TestSortStack();
 }
 
 void TestLinkedList()
@@ -217,4 +218,18 @@ void TestQueueWithTwoStacks()
     std::cout << queue->Pop() << std::endl;
     std::cout << queue->Peek() << std::endl;
     std::cout << queue->Pop() << std::endl;
+}
+
+void TestSortStack()
+{
+    SortStack *stack = new SortStack();
+    stack->Push(6);
+    stack->Push(5);
+    stack->Push(4);
+    stack->Push(3);
+    stack->Push(2);
+    std::cout << stack->Pop() << std::endl;
+    std::cout << stack->Pop() << std::endl;
+    std::cout << stack->Peek() << std::endl;
+    std::cout << stack->Pop() << std::endl;
 }
