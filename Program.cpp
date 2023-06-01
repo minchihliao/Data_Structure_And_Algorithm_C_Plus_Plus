@@ -10,7 +10,7 @@
 #include "Question\Array_And_String.h"
 #include "Question\LinkedList.h"
 #include "Question\Stack_And_Queue.h"
-
+#include "Question\Graph_and_Tree.h"
 void TestLinkedList();
 void TestDoubleLinkedList();
 void TestStack();
@@ -29,9 +29,10 @@ void TestQueueWithTwoStacks();
 void TestSortStack();
 void TestBinarySearchTree();
 void TestMinHeap();
+void TestIsPath();
 int main()
 {
-    TestMinHeap();
+    TestIsPath();
 }
 
 void TestLinkedList()
@@ -272,4 +273,22 @@ void TestMinHeap()
     std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
     std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
     std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
+}
+
+void TestIsPath()
+{
+    Graph_and_Tree *problem = new Graph_and_Tree();
+    Graph *graph = new Graph();
+    GraphNode *Node1 = new GraphNode(1);
+    GraphNode *Node2 = new GraphNode(2);
+    GraphNode *Node3 = new GraphNode(3);
+    GraphNode *Node4 = new GraphNode(4);
+    Node1->children.push_back(Node2);
+    Node1->children.push_back(Node3);
+    Node2->children.push_back(Node4);
+    graph->Nodes.push_back(Node1);
+    graph->Nodes.push_back(Node2);
+    graph->Nodes.push_back(Node3);
+    graph->Nodes.push_back(Node4);
+    std::cout << "IsPath :" << problem->IsPath(graph, Node2, Node4) << std::endl;
 }
