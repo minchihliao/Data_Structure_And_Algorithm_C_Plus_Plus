@@ -1,13 +1,13 @@
 #include <iostream>
 
-class MyBinaryNode
+class MyBinaryTreeNode
 {
 private:
 public:
-    MyBinaryNode(int val);
+    MyBinaryTreeNode(int val);
     int data;
-    MyBinaryNode *leftNode;
-    MyBinaryNode *rightNode;
+    MyBinaryTreeNode *leftNode;
+    MyBinaryTreeNode *rightNode;
 };
 
 class MyBinaryTree
@@ -16,8 +16,10 @@ private:
 public:
     MyBinaryTree(/* args */);
     ~MyBinaryTree();
-    MyBinaryNode *tree;
-    void PreOrder(MyBinaryNode *node);
-    void InOrder(MyBinaryNode *node);
-    void PostOrder(MyBinaryNode *node);
+    MyBinaryTreeNode *root;
+    void Insert(int val);
+    void Delete(int val);
+    void PreOrder(MyBinaryTreeNode *node);
+    void InOrder(MyBinaryTreeNode *node);
+    void PostOrder(MyBinaryTreeNode *node);
 };

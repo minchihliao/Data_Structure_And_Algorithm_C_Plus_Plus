@@ -1,13 +1,14 @@
 #include <iostream>
+#include <list>
 #include "Data_Structure\MyLinkedList.h"
 #include "Data_Structure\MyDoubleLinkedList.h"
 #include "Data_Structure\MyStack.h"
 #include "Data_Structure\MyQueue.h"
 #include "Data_Structure\MyBinaryTree.h"
+#include "Data_Structure\MyBinarySearchTree.h"
 #include "Question\Array_And_String.h"
 #include "Question\LinkedList.h"
 #include "Question\Stack_And_Queue.h"
-#include <list>
 
 void TestLinkedList();
 void TestDoubleLinkedList();
@@ -25,9 +26,10 @@ void TestLinkedListIsPalindrom();
 void TestStackwithMinValue();
 void TestQueueWithTwoStacks();
 void TestSortStack();
+void TestBinarySearchTree();
 int main()
 {
-    TestSortStack();
+    TestBinarySearchTree();
 }
 
 void TestLinkedList()
@@ -83,20 +85,20 @@ void TestQueue()
 void TestBinaryTree()
 {
     MyBinaryTree *binaryTree = new MyBinaryTree();
-    binaryTree->tree = new MyBinaryNode(1);
-    binaryTree->tree->leftNode = new MyBinaryNode(2);
-    binaryTree->tree->rightNode = new MyBinaryNode(3);
-    binaryTree->tree->leftNode->leftNode = new MyBinaryNode(4);
-    binaryTree->tree->leftNode->rightNode = new MyBinaryNode(5);
+    binaryTree->root = new MyBinaryTreeNode(1);
+    binaryTree->root->leftNode = new MyBinaryTreeNode(2);
+    binaryTree->root->rightNode = new MyBinaryTreeNode(3);
+    binaryTree->root->leftNode->leftNode = new MyBinaryTreeNode(4);
+    binaryTree->root->leftNode->rightNode = new MyBinaryTreeNode(5);
 
     std::cout << "Preorder Traversal of binary tree is " << std::endl;
-    binaryTree->PreOrder(binaryTree->tree);
+    binaryTree->PreOrder(binaryTree->root);
     std::cout << std::endl
               << "InOrder Traversal of binary tree is " << std::endl;
-    binaryTree->InOrder(binaryTree->tree);
+    binaryTree->InOrder(binaryTree->root);
     std::cout << std::endl
               << "PostOrder Traversal of binary tree is " << std::endl;
-    binaryTree->PostOrder(binaryTree->tree);
+    binaryTree->PostOrder(binaryTree->root);
 }
 void TestIsUniqueChar()
 {
@@ -232,4 +234,25 @@ void TestSortStack()
     std::cout << stack->Pop() << std::endl;
     std::cout << stack->Peek() << std::endl;
     std::cout << stack->Pop() << std::endl;
+}
+
+void TestBinarySearchTree()
+{
+    MyBinarySearchTree *binarySearchTree = new MyBinarySearchTree();
+
+    binarySearchTree->Insert(1);
+    binarySearchTree->Insert(3);
+    binarySearchTree->Insert(2);
+    binarySearchTree->Insert(4);
+    binarySearchTree->Insert(5);
+    binarySearchTree->Insert(6);
+
+    std::cout << "InOrder Traversal of binary tree is " << std::endl;
+    binarySearchTree->InOrder(binarySearchTree->root);
+    binarySearchTree->Delete(2);
+    binarySearchTree->Delete(4);
+    std::cout << "InOrder Traversal of binary tree is " << std::endl;
+    binarySearchTree->InOrder(binarySearchTree->root);
+    std::cout << "Search tree (2) " << binarySearchTree->Search(2) << std::endl;
+    std::cout << "Search tree (6) " << binarySearchTree->Search(6) << std::endl;
 }

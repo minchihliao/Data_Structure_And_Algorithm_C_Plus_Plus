@@ -1,6 +1,6 @@
 #include "MyBinaryTree.h"
 
-MyBinaryNode::MyBinaryNode(int val)
+MyBinaryTreeNode::MyBinaryTreeNode(int val)
 {
     this->data = val;
     this->leftNode = nullptr;
@@ -13,10 +13,10 @@ MyBinaryTree::MyBinaryTree(/* args */)
 
 MyBinaryTree::~MyBinaryTree()
 {
-    delete tree;
+    delete root;
 }
 
-void MyBinaryTree::PreOrder(MyBinaryNode *node)
+void MyBinaryTree::PreOrder(MyBinaryTreeNode *node)
 {
     if (node == nullptr)
         return;
@@ -24,7 +24,7 @@ void MyBinaryTree::PreOrder(MyBinaryNode *node)
     PreOrder(node->leftNode);
     PreOrder(node->rightNode);
 }
-void MyBinaryTree::InOrder(MyBinaryNode *node)
+void MyBinaryTree::InOrder(MyBinaryTreeNode *node)
 {
     if (node == nullptr)
         return;
@@ -32,7 +32,7 @@ void MyBinaryTree::InOrder(MyBinaryNode *node)
     std::cout << node->data;
     InOrder(node->rightNode);
 }
-void MyBinaryTree::PostOrder(MyBinaryNode *node)
+void MyBinaryTree::PostOrder(MyBinaryTreeNode *node)
 {
     if (node == nullptr)
         return;
