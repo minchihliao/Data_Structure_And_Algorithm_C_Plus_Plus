@@ -6,6 +6,7 @@
 #include "Data_Structure\MyQueue.h"
 #include "Data_Structure\MyBinaryTree.h"
 #include "Data_Structure\MyBinarySearchTree.h"
+#include "Data_Structure\MinHeap.h"
 #include "Question\Array_And_String.h"
 #include "Question\LinkedList.h"
 #include "Question\Stack_And_Queue.h"
@@ -27,9 +28,10 @@ void TestStackwithMinValue();
 void TestQueueWithTwoStacks();
 void TestSortStack();
 void TestBinarySearchTree();
+void TestMinHeap();
 int main()
 {
-    TestBinarySearchTree();
+    TestMinHeap();
 }
 
 void TestLinkedList()
@@ -255,4 +257,19 @@ void TestBinarySearchTree()
     binarySearchTree->InOrder(binarySearchTree->root);
     std::cout << "Search tree (2) " << binarySearchTree->Search(2) << std::endl;
     std::cout << "Search tree (6) " << binarySearchTree->Search(6) << std::endl;
+}
+
+void TestMinHeap()
+{
+    MinHeap *heap = new MinHeap();
+    heap->Insert(3);
+    heap->Insert(1);
+    heap->Insert(4);
+    heap->Insert(5);
+    std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
+    heap->Insert(2);
+    heap->Insert(7);
+    std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
+    std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
+    std::cout << "Smallest :" << heap->ExtractMin() << std::endl;
 }
