@@ -1,4 +1,5 @@
 #include <vector>
+#include <list>
 #include <queue>
 enum State
 {
@@ -18,6 +19,17 @@ public:
     std::vector<GraphNode *> children;
 };
 
+class TreeNode
+{
+private:
+    /* data */
+public:
+    TreeNode(int val);
+    int data;
+    TreeNode *Left;
+    TreeNode *Right;
+};
+
 class Graph
 {
 private:
@@ -32,4 +44,5 @@ private:
     /* data */
 public:
     bool IsPath(Graph *node, GraphNode *start, GraphNode *end);
+    std::vector<std::list<TreeNode *>> *DepthArray(TreeNode *tree);
 };

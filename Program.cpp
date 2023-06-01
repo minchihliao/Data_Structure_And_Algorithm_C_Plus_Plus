@@ -30,9 +30,10 @@ void TestSortStack();
 void TestBinarySearchTree();
 void TestMinHeap();
 void TestIsPath();
+void TestDepthArray();
 int main()
 {
-    TestIsPath();
+    TestDepthArray();
 }
 
 void TestLinkedList()
@@ -291,4 +292,23 @@ void TestIsPath()
     graph->Nodes.push_back(Node3);
     graph->Nodes.push_back(Node4);
     std::cout << "IsPath :" << problem->IsPath(graph, Node2, Node4) << std::endl;
+}
+
+void TestDepthArray()
+{
+    Graph_and_Tree *problem = new Graph_and_Tree();
+    TreeNode *root = new TreeNode(0);
+    root->Left = new TreeNode(1);
+    root->Right = new TreeNode(2);
+    root->Left->Right = new TreeNode(3);
+    root->Right->Right = new TreeNode(4);
+    std::vector<std::list<TreeNode *>> *result = problem->DepthArray(root);
+    for (const auto &list : *result)
+    {
+        for (const auto &treeNode : list)
+        {
+            std::cout << treeNode->data << " ";
+        }
+        std::cout << std::endl;
+    }
 }
